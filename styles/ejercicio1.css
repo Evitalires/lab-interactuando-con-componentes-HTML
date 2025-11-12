@@ -1,0 +1,22 @@
+body {
+
+    main {
+
+        section {
+            display: flex;
+            justify-content: space-around;
+            
+            article {
+                border: 1px solid pink;
+            }
+            li {
+                display: flex;
+                gap: 1em;
+            }
+        }
+        .votacion {
+            display: flex;
+            flex-flow: column;
+        }
+    }
+}
