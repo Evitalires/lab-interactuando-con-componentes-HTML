@@ -1,0 +1,56 @@
+body {
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    nav {
+        display: flex;
+        justify-content: space-around;
+        padding: .5em;
+        border-bottom: 2px solid black;
+    }
+    main {
+        display: flex;
+        padding: 0 2em;
+        justify-content: space-between;
+        height: 90vh;
+
+        section {
+            border: 2px solid black;
+            
+            section {
+                display: flex;
+                width: unset;
+            }
+        }
+        .producto {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .productos {
+            
+        }
+        #contenedorProductos {
+            display: grid;
+            gap: 1em;
+        }
+        #contenedorProductosCarrito {
+            background-color: lightblue;
+            display: grid;
+            gap: 1em;
+            .productoCarrito {
+                display: flex;
+                justify-content: space-between;
+                button {
+                    display: none;
+                }
+            }
+            .productoCarrito:hover {
+                button {
+                    display: flex;
+                }
+            }
+        }
+    }
+}

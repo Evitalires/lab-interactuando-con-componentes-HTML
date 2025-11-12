@@ -4,14 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ejercicio 1</title>
+    <link rel="stylesheet" href="../styles/ejercicio2.css">
 </head>
 <body>
     <nav>
         <a href="../index.html"> 👈 - Volver</a>
-        <a href="./ejercicio1.html">  Ejercicio 2</a>
+        <a href="./ejercicio1.html">  Ejercicio 1</a>
     </nav>
     <main> 
-        <h1>Carrito de Compras</h1>
+        <section class="productos">
+            <h2>Productos</h2>
+            <section class="referenciaProductos">
+                <article>
+                    <span>Nombre</span>
+                    <span>Precio</span>
+                </article>
+            </section>
+            <section id="contenedorProductos">
+                <article class="producto">
+                    <span>Nombre</span>
+                    <span>Precio</span>
+                </article>
+            </section>
+        </section>
+        <section>
+            <h2>Carrito compras</h2>
+            <section>
+                <article>
+                    <span>Nombre</span>
+                    <span>Precio</span>
+                    <span>Cantidad</span>
+                    <span>Total</span>
+                </article>
+            </section>
+            <section id="contenedorProductosCarrito">
+                <article class="productoCarrito">
+                    <button>X</button>
+                    <span>Nombre</span>
+                    <span>$ Precio</span>
+                    <span>Cantidad</span>
+                    <span>$ Total</span>
+                </article>
+            </section>
+            <article id="totalCarritoProductos">
+            </article>
+        </section>
     </main>
+    <script src="../scripts/ejercicio2.js"></script>
 </body>
 </html>
