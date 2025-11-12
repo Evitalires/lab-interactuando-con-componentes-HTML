@@ -40,12 +40,22 @@ class Productos {
     }
     alCarrito(producto) {
         console.log("Al carrito");
-        console.log(producto);
+        let newProductos = productosCarrito.devolverProductos();
+        newProductos.push(producto);
+        productosCarrito.actualizarCarrito(newProductos)
     }
 }
 class ProductosCarrito {
   constructor(productos) {
     this.productos = productos;
+  }
+
+  actualizarCarrito(productos){
+    this.productos = productos;
+    this.mostrar();
+  }
+  devolverProductos(){
+    return this.productos
   }
 
   mostrar() {
@@ -68,7 +78,9 @@ class ProductosCarrito {
         <span>${producto.cantidad}</span>
         <span>$ ${producto.total}</span>
       `;
-
+        // Mostrar los productos en consola
+        console.log(producto);
+        
       const botonEliminar = article.querySelector(".eliminar");
       botonEliminar.addEventListener("click", () => this.eliminarProducto(producto.nombre));
 
@@ -100,11 +112,23 @@ class ProductosCarrito {
             total += p.precio * p.cantidad;
             cantidadTotal += p.cantidad;
         });
-
+        
+        if (total > 50) alert("Envio Gratis aplicado") 
         totalElement.innerHTML = `
             <strong>Total productos:</strong> ${cantidadTotal} <br>
             <strong>Total a pagar:</strong> $${total}
+            <button class="vaciarCarrito">🗑️</button>
         `;
+
+        //Vaciar carrito
+        const botonVaciarCarrito = document.querySelector(".vaciarCarrito");
+        botonVaciarCarrito.addEventListener("click", () => this.vaciarCarrito());
+    }
+    vaciarCarrito() {
+        console.log("Vaciaer carrito");
+        const contenedor = document.getElementById("contenedorProductosCarrito");
+        contenedor.innerHTML = "";
+        alert("Carrito vacio")
     }
 }
 
@@ -116,5 +140,4 @@ const productos = new Productos([
 
 productos.mostrar();
 
-const productosCarrito = new ProductosCarrito(productos.productos)
-productosCarrito.mostrar();
+const productosCarrito = new ProductosCarrito([])
