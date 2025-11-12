@@ -3,6 +3,8 @@ let opciones = [
     {opcion: "Backend", votos: 10},
     {opcion: "Base de Datos", votos: 0}    
 ]
+let votacionCiclo = 0;
+let votosAcumulados = 0;
 
 //
 const resultadosVotaciones = document.getElementById("resultadosVotaciones")
@@ -10,20 +12,20 @@ const resultadosVotaciones = document.getElementById("resultadosVotaciones")
 //
 const reducirVotosBotones = document.querySelectorAll(".reducirVotos");
 const aumentarVotosBotones = document.querySelectorAll(".aumentarVotos");
-console.log(reducirVotosBotones);
+
 
 
 reducirVotosBotones.forEach(boton => {
   boton.addEventListener("click", (e) => {
     reducirVotos(e);
-    alert("¡Gracias por tu voto!")
+    alert("¡Gracias por tu voto!");
   });
 });
 
 aumentarVotosBotones.forEach(boton => {
   boton.addEventListener("click", (e) => {
     aumentarVotos(e);
-    alert("¡Gracias por tu voto!")
+    alert("¡Gracias por tu voto!");
   });
 });
 
@@ -46,25 +48,31 @@ function aumentarVotos(e) {
             opc.opcion === texto
             ? {...opc, votos: opc.votos + 1} 
             : opc
-    )
-    console.log(nuevosResultados);
-    
+    ) 
     opciones = nuevosResultados;
     actualizarResultados(opciones);
 }
 
 function actualizarResultados(opciones) {
+    //Contar + 1 para mostrar mensaje.
+    votacionCiclo += 1;
+    votosAcumulados = 0;
 
     resultadosVotaciones.innerHTML = "";
-
-    opciones.forEach(opcion => {
+    opciones.forEach((opcion, index) => {
         let li = document.createElement("li")
-        console.log(opcion.opcion);
         
-        li.innerHTML = `
-            <h3>${opcion.opcion} : <span> ${opcion.votos} </span> votos</h3>
-        `
-        resultadosVotaciones.appendChild(li)
+        li.innerHTML = `<h3>${opcion.opcion} : <span> ${opcion.votos} </span> votos</h3>`
+        resultadosVotaciones.appendChild(li);
+        votosAcumulados += parseInt(opcion.votos);
+
+        if(votacionCiclo == 6) {
+            if(index === opciones.length - 1) {
+                votacionCiclo = 0;
+                console.log(`Total votos acumulados: ${votosAcumulados}.`);
+            }
+        }
+
     });
     
     

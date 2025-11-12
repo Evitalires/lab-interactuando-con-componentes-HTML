@@ -1,17 +1,103 @@
 body {
+    margin: 0 auto;
+    font-size: 16px;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    nav {
+        display: flex;
+        justify-content: space-around;
+        padding: .5em;
+        border-bottom: 2px solid black;
+        
+        a {
+            text-decoration: none;
+            padding: .3em .7em;
+            background-color: transparent;
+            transition: .3s all ease;
+        }
+        a:hover {
+             background-color: lightcoral;
+        }
+    }
 
     main {
+        h1 {
+            text-align: center;
+        }
 
         section {
             display: flex;
             justify-content: space-around;
             
             article {
-                border: 1px solid pink;
-            }
-            li {
+                padding: 1em .5em;
+                border: 4px solid pink;
                 display: flex;
-                gap: 1em;
+                flex-direction: column;
+
+                h2 {
+                font-size: 1.2em;
+            }
+
+             
+            ul {
+                min-width: fit-content;
+                list-style: none;
+                padding: 0;
+                padding-left: 1em;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 1em;
+                    margin: .5em;
+                    height: 65px;
+
+                    button {
+                        background-color: lightcoral;
+                        border: 1px solid coral;
+                        color: white;
+                        font-size: 1.5em;
+                        cursor: pointer;
+                        width: 35px;
+                        height: 35px;
+                        margin: 0;
+                    }
+                    button:hover {
+                        background-color: red;
+                    }
+                    button:last-child:hover {
+                        background-color: green;
+                    }
+
+                    h3 {
+                        width: 130px;
+                        height: 45px;
+                        margin: 0;
+                        display: flex;
+                        align-items: center;
+                        display: flex;
+                        gap: 1em;
+                        margin: .5em;
+                    }
+                }
+            }
+            ul#resultadosVotaciones {
+                li {
+                    display: flex;
+                    h3 {
+                        min-width: min-content;
+                        width: 300px;
+                        display: flex;
+                        padding-left: .5em;
+                        justify-content: space-around;
+                        border-bottom: 5px solid lightcoral;
+                    }
+                    h3:hover {
+                        border-bottom: 5px solid red;
+                    }
+                }
+            }
             }
         }
         .votacion {
